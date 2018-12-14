@@ -1,0 +1,3 @@
+view, text, image{
+  box-sizing: border-box;
+}
