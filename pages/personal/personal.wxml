@@ -1,0 +1,19 @@
+<view class='index'>
+  <view class='header' bindtap='handleLogin'>
+    <image src='{{ user.avatar }}' class='avatar' style='width:{{ 200*headerBili }}rpx;height:{{ 200*headerBili }}rpx;'></image>
+    <text class='nickname' style='font-size:{{ 40*headerBili }}rpx;margin-top:{{ 30*headerBili }}rpx;'>{{ user.nickname }}</text>
+  </view>
+
+  <view class='xheader' style='opacity:{{ headerBili < 0.38 ? (1-headerBili)+0.3  :"0" }}'>
+    <image src='{{ user.avatar }}' class='avatar'></image>
+    <text class='nickname'>{{ user.nickname }}</text>
+  </view>
+  
+  <view class="tip" wx:if="{{ !isLogin }}">登录后可解锁更多操作~</view>
+
+  <view class='items' wx:if="{{ isLogin }}">
+    <view class='item' wx:for="{{ 9 }}" wx:key="{{ index }}">{{ index }}</view>
+  </view>
+
+  <view class='logout' wx:if="{{ isLogin }}" bindtap='handleLogout'>注销登录</view>
+</view>

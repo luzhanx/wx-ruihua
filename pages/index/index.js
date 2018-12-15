@@ -1,3 +1,5 @@
+import { test } from './../../utils/api/api.js';
+
 Page({
 
   data: {
@@ -9,12 +11,12 @@ Page({
   onLoad: function (options) {
     this.systemWidth = this.__getSystemWidth();
     
-    wx.request({
-      url: 'https://ruihua.xtow.net/api/index',
-      header: {
-        token: '111'
-      }
-    })
+    // wx.request({
+    //   url: 'https://ruihua.xtow.net/api/index',
+    //   header: {
+    //     token: '111'
+    //   }
+    // })
   },
 
   onShow: function () {
@@ -24,7 +26,6 @@ Page({
   // 滚动监听
   onPageScroll(e){
     // 比例 340 / 375 ≈ 0.907；
-
     let headerH = parseInt(this.systemWidth * 0.907, 10) / 2; // header高度
     let bili = (headerH - e.scrollTop) / headerH;             // 比例
     

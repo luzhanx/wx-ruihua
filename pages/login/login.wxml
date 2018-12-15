@@ -1,0 +1,2 @@
+<!--pages/login/login.wxml-->
+<button bindtap='handleLogin'>登录</button>
