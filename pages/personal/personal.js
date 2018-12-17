@@ -90,6 +90,12 @@ Page({
       });
     }
   },
+  // 拨打电话
+  handlePhoneCall(){
+    wx.makePhoneCall({
+      phoneNumber: '13076248607'
+    })
+  },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */

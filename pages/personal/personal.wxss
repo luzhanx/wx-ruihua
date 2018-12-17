@@ -91,6 +91,22 @@
   margin-bottom: 20rpx;
   border-radius: 8rpx;
   box-shadow: 0 8rpx 10rpx #eee;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  padding: 0 32rpx;
+}
+.items .item .icon {
+  width: 29rpx;
+  height: 35rpx;
+}
+.items .item .key {
+  color: #858585;
+  padding: 0 20rpx;
+  flex: 1;
+}
+.items .item .value {
+  color: #858585;
 }
 .items .item:last-child {
   margin-bottom: 0;

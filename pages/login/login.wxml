@@ -4,10 +4,10 @@
 <view class='login'>
   <image class="logo" src="/static/img/logo.png"></image>
   <view class="text">用户登录</view>
-  <input type="text" class="input" placeholder="请输入手机号" />
-  <input type="password" class="input" placeholder="请输入密码" />
+  <input type="text" class="input" placeholder="请输入手机号"  bindinput="handleInputKey" data-key="phone"/>
+  <input type="password" class="input" placeholder="请输入密码"  bindinput="handleInputKey" data-key="password"/>
 
   <button class="submit" bindtap="handleLogin">登录</button>
-  <view class="regLink">立即注册</view>
+  <view class="regLink" bindtap="handleToReg">立即注册</view>
 </view>
 

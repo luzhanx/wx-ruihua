@@ -3,17 +3,57 @@
     <image src='{{ user.avatar }}' class='avatar' style='width:{{ 200*headerBili }}rpx;height:{{ 200*headerBili }}rpx;'></image>
     <text class='nickname' style='font-size:{{ 40*headerBili }}rpx;margin-top:{{ 30*headerBili }}rpx;'>{{ user.nickname }}</text>
   </view>
-
   <view class='xheader' style='opacity:{{ headerBili < 0.38 ? (1-headerBili)+0.3  :"0" }}'>
     <image src='{{ user.avatar }}' class='avatar'></image>
     <text class='nickname'>{{ user.nickname }}</text>
   </view>
-  
   <view class="tip" wx:if="{{ !isLogin }}">登录后可解锁更多操作~</view>
-
   <view class='items' wx:if="{{ isLogin }}">
-    <view class='item' wx:for="{{ 9 }}" wx:key="{{ index }}">{{ index }}</view>
+    <view class='item'>
+      <image class="icon" src="/static/img/xm.png"></image>
+      <view class="key">姓名</view>
+      <text class="value">曹操</text>
+    </view>
+    <view class='item'>
+      <image class="icon" src="/static/img/nl.png"></image>
+      <view class="key">年龄</view>
+      <text class="value">30</text>
+    </view>
+    <view class='item'>
+      <image class="icon" src="/static/img/nl.png"></image>
+      <view class="key">性别</view>
+      <text class="value">男</text>
+    </view>
+    <view class='item'>
+      <image class="icon" src="/static/img/gs.png"></image>
+      <view class="key">公司</view>
+      <text class="value">瑞华会计事务所</text>
+    </view>
+    <view class='item'>
+      <image class="icon" src="/static/img/bm.png"></image>
+      <view class="key">部门</view>
+      <text class="value">神经病</text>
+    </view>
+    <view class='item'>
+      <image class="icon" src="/static/img/zw.png"></image>
+      <view class="key">职位</view>
+      <text class="value">神经病</text>
+    </view>
+    <view class='item'>
+      <image class="icon" src="/static/img/xm.png"></image>
+      <view class="key">绑定账号</view>
+      <text class="value">神经病</text>
+    </view>
+    <view class='item'>
+      <image class="icon" src="/static/img/zhaq.png"></image>
+      <view class="key">账号安全</view>
+      <text class="value">修改密码</text>
+    </view>
+    <view class='item' bindtap="handlePhoneCall">
+      <image class="icon" src="/static/img/lxkf.png"></image>
+      <view class="key">联系客服</view>
+      <text class="value">666666</text>
+    </view>
   </view>
-
   <view class='logout' wx:if="{{ isLogin }}" bindtap='handleLogout'>注销登录</view>
 </view>
