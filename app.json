@@ -1,13 +1,8 @@
 {
   "pages": [
-    "pages/personal/personal",
-            "pages/reg/reg",
     "pages/index/index",
-
-
-
-
-
+    "pages/personal/personal",
+    "pages/reg/reg",
     "pages/login/login",
     "pages/zfdk/zfdk"
   ],
@@ -15,7 +10,8 @@
   "tabBar": {
     "selectedColor": "#00a1e9",
     "backgroundColor": "#fff",
-    "list": [{
+    "list": [
+      {
         "iconPath": "/static/img/indexIcon.jpg",
         "selectedIconPath": "/static/img/indexIcon_active.jpg",
         "pagePath": "pages/index/index",

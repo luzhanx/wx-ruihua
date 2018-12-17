@@ -35,6 +35,12 @@ Page({
       }
     })
   },
+  // 跳转用户中心
+  handleToPersonal(){
+    wx.switchTab({
+      url: '/pages/personal/personal',
+    });
+  },
   onReady: function () {
 
   },

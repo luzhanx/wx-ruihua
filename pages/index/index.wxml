@@ -1,7 +1,7 @@
 <!-- pages/index/index.wxml -->
 <view class="index">
     <view class="header">
-        <view class="top">
+        <view class="top" bindtap="handleToPersonal">
             <image class="avatar" src="/static/img/avatar.png"></image>
             <view class="info">
                 <view class="info_t">
