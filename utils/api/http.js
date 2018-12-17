@@ -1,5 +1,5 @@
 const fetch = require('./fetch');
-const host = '127.0.0.1';
+const host = 'https://ruihua.xtow.net';
 
 const http = {
   get(url, params) {
@@ -9,7 +9,7 @@ const http = {
     return fetch(host + url, 'POST', data, params);
   },
   uploadFile(url, file, data) {
-    let cookie = wx.getStorageSync('token');
+    let token = wx.getStorageSync('token');
     let headers = {
       'content-type': 'application/json',
       'token': token

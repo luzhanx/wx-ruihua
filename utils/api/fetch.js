@@ -16,7 +16,7 @@ module.exports = function(url, method, data, params) {
     wx.showNavigationBarLoading()
 
     const URL = url + urlEncode(params)
-    console.log(URL);
+
     wx.request({
       url: URL,
       method: method,

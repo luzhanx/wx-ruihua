@@ -56,7 +56,7 @@
 .header .top .info .info_t .sexNum {
   font-size: 28rpx;
   position: relative;
-  top: 20rpx;
+  top: 16rpx;
 }
 .header .top .info .dec {
   font-size: 26rpx;
@@ -176,6 +176,9 @@
 .items .item .info {
   flex: 1;
   padding: 0 20rpx;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 .items .item .info .name {
   color: #333;
@@ -187,11 +190,14 @@
   padding: 0 10rpx;
 }
 .items .item .info .dec {
+  width: 100%;
   font-size: 26rpx;
   color: #999;
-  height: 66rpx;
   overflow: hidden;
   line-height: 32rpx;
+  margin-top: 10rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .items .item .right {
   width: 24rpx;
@@ -244,7 +250,7 @@
 .icon-bangzhu {
   font-size: 32rpx;
   color: red;
-  padding: 0 10rpx;
+  padding: 0 6rpx;
 }
 .submit {
   margin: 0 64rpx;
