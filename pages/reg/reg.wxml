@@ -1,0 +1,12 @@
+<!-- pages/login/login.wxml -->
+<!-- <button bindtap='handleLogin'>登录</button> -->
+<view class='reg'>
+  <image class="logo" src="/static/img/logo.png"></image>
+  <view class="text">用户注册</view>
+  <input type="text" class="input" placeholder="请输入姓名" />
+  <input type="text" class="input" placeholder="请输入手机号" />
+  <input type="password" class="input" placeholder="请输入密码" />
+  <input type="password" class="input" placeholder="请再次输入密码" />
+  <button class="submit" open-type="getUserInfo" bindgetuserinfo="getUserInfo">注册</button>
+  <view class="tip">如果用户不存在, 即无法注册请联系客服</view>
+</view>

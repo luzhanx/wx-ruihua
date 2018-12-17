@@ -1,7 +1,10 @@
 {
   "pages": [
-    "pages/personal/personal",
-    "pages/login/login"
+    "pages/reg/reg",
+    "pages/login/login",
+    "pages/index/index",
+    "pages/zfdk/zfdk",
+    "pages/personal/personal"
   ],
   "window": {},
   "tabBar": {
@@ -9,10 +12,14 @@
     "backgroundColor": "#fff",
     "list": [
       {
-        "pagePath": "pages/personal/personal",
+        "iconPath": "/static/img/indexIcon.jpg",
+        "selectedIconPath": "/static/img/indexIcon_active.jpg",
+        "pagePath": "pages/index/index",
         "text": "首页"
       },
       {
+        "iconPath": "/static/img/personalIcon.jpg",
+        "selectedIconPath": "/static/img/personalIcon_active.jpg",
         "pagePath": "pages/personal/personal",
         "text": "个人"
       }

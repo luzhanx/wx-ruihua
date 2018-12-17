@@ -1,4 +1,4 @@
-<view class='index'>
+<view class='personal'>
   <view class='header' bindtap='handleLogin'>
     <image src='{{ user.avatar }}' class='avatar' style='width:{{ 200*headerBili }}rpx;height:{{ 200*headerBili }}rpx;'></image>
     <text class='nickname' style='font-size:{{ 40*headerBili }}rpx;margin-top:{{ 30*headerBili }}rpx;'>{{ user.nickname }}</text>

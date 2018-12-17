@@ -1,2 +1,126 @@
-<!--pages/index/index.wxml-->
-<text>pages/index/index.wxml</text>
+<!-- pages/index/index.wxml -->
+<view class="index">
+    <view class="header">
+        <view class="top">
+            <image class="avatar" src="/static/img/avatar.png"></image>
+            <view class="info">
+                <view class="info_t">
+                    <view class="nickname">曹操</view>
+                </view>
+                <view class="dec">
+                    <text>瑞华会计事务所</text>
+                    |
+                    <text>设计部</text>
+                    |
+                    <text>设计总监</text>
+                </view>
+            </view>
+        </view>
+        <view class="bot">
+            <view class="sj">
+                <view class="iconfont icon-shijian" bindtap="handleShowsj"></view>
+                <view class="showsj" bindtap="handleShowsj" style="visibility: {{ showsj ? 'visible':'hidden' }};width:{{ showsj ? '100%':'0' }}">
+                    <view class="showsjc">
+                        <view class="key" style="visibility: {{ showsj ? 'visible':'hidden' }};">
+                            上次登录时间
+                        </view>
+                        <view class="value" style="visibility: {{ showsj ? 'visible':'hidden' }};">
+                            2018.12.12 00:30
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='items'>
+        <!-- <view class='item' wx:for="{{ 9 }}" wx:key="{{ index }}">{{ index }}</view> -->
+        <view class="item" bindtap="handleToDetail">
+            <image class="icon" src="/static/img/zfdk.png"></image>
+            <view class="info">
+                <view class="name">
+                    住房贷款
+                    <i class="iconfont icon-bangzhu" catchtap="handleShowHelp"></i>
+                </view>
+                <view class="dec">
+                    备注备注备注备注备注备注备注备注备注备注备注备注备注备注注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注注备注备注备注
+                </view>
+            </view>
+            <image class="right" src="/static/img/right.png"></image>
+        </view>
+        <view class="item" bindtap="handleToDetail">
+            <image class="icon" src="/static/img/zfzj.png"></image>
+            <view class="info">
+                <view class="name">
+                    住房租金
+                    <i class="iconfont icon-bangzhu" catchtap="handleShowHelp"></i>
+                </view>
+                <view class="dec">
+                    备注备注备注备注备注备注备注备注备注备注备注备注备注备注注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注注备注备注备注
+                </view>
+            </view>
+            <image class="right" src="/static/img/right.png"></image>
+        </view>
+        <view class="item" bindtap="handleToDetail">
+            <image class="icon" src="/static/img/znjy.png"></image>
+            <view class="info">
+                <view class="name">
+                    子女教育
+                    <i class="iconfont icon-bangzhu" catchtap="handleShowHelp"></i>
+                </view>
+                <view class="dec">
+                    备注备注备注备注备注备注备注备注备注备注备注备注备注备注注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注注备注备注备注
+                </view>
+            </view>
+            <image class="right" src="/static/img/right.png"></image>
+        </view>
+        <view class="item" bindtap="handleToDetail">
+            <image class="icon" src="/static/img/sylr.png"></image>
+            <view class="info">
+                <view class="name">
+                    赡养老人
+                    <i class="iconfont icon-bangzhu" catchtap="handleShowHelp"></i>
+                </view>
+                <view class="dec">
+                    备注备注备注备注备注备注备注备注备注备注备注备注备注备注注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注注备注备注备注
+                </view>
+            </view>
+            <image class="right" src="/static/img/right.png"></image>
+        </view>
+        <view class="item" bindtap="handleToDetail">
+            <image class="icon" src="/static/img/jxjy.png"></image>
+            <view class="info">
+                <view class="name">
+                    继续教育专项附加扣除
+                    <i class="iconfont icon-bangzhu" catchtap="handleShowHelp"></i>
+                </view>
+                <view class="dec">
+                    备注备注备注备注备注备注备注备注备注备注备注备注备注备注注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注注备注备注备注
+                </view>
+            </view>
+            <image class="right" src="/static/img/right.png"></image>
+        </view>
+        <view class="item" bindtap="handleToDetail">
+            <image class="icon" src="/static/img/dbyl.png"></image>
+            <view class="info">
+                <view class="name">
+                    大病医疗
+                    <i class="iconfont icon-bangzhu" catchtap="handleShowHelp"></i>
+                </view>
+                <view class="dec">
+                    备注备注备注备注备注备注备注备注备注备注备注备注备注备注注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注注备注备注备注
+                </view>
+            </view>
+            <image class="right" src="/static/img/right.png"></image>
+        </view>
+    </view>
+</view>
+<view class="showHelp" style="display:{{ showHelp.show ? 'flex':'none' }}">
+    <view class="model">
+        <view class="title">
+            <i class="iconfont icon-bangzhu"></i>
+            {{ showHelp.title }}
+        </view>
+        <view class="content">{{ showHelp.content }}</view>
+        <view class="close" bindtap="handleShowHelp">关闭</view>
+    </view>
+</view>
