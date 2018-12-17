@@ -47,6 +47,17 @@ Page({
       method: 'POST',
       success: (res) => {
         console.log(res);
+        if (res.data.code === 1) {
+          // wx.navigateBack({
+          //   delta: 1
+          // })
+        } else {
+          return wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            mask: true
+          });
+        }
       },
       fail() {
         wx.showToast({
@@ -57,9 +68,7 @@ Page({
       },
     });
 
-    // wx.navigateBack({
-    //   delta: 1
-    // })
+
   },
   // 前往注册页
   handleToReg() {
