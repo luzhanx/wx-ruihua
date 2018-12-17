@@ -3,7 +3,7 @@
     <view class="header">
         <view class="top" bindtap="handleToPersonal">
             <image class="avatar" src="/static/img/avatar.png"></image>
-            <view class="info">
+            <view class="info" wx:if="{{ isLogin }}">
                 <view class="info_t">
                     <view class="nickname">曹操</view>
                     <image class="sexImg" src="/static/img/nan.png"></image>
@@ -17,14 +17,18 @@
                     <text>设计总监</text>
                 </view>
             </view>
+            <view class="toLoginText" wx:else>请点击登录</view>
         </view>
         <view class="bot">
             <view class="sj">
                 <view class="iconfont icon-shijian" bindtap="handleShowsj"></view>
                 <view class="showsj" bindtap="handleShowsj" style="visibility: {{ showsj ? 'visible':'hidden' }};width:{{ showsj ? '100%':'0' }}">
-                    <view class="showsjc">
+                    <view class="showsjc" wx:if="{{ isLogin }}">
                         <view class="key" style="visibility: {{ showsj ? 'visible':'hidden' }};">上次登录时间</view>
                         <view class="value" style="visibility: {{ showsj ? 'visible':'hidden' }};">2018.12.12 00:30</view>
+                    </view>
+                    <view class="showsjc">
+                        <view class="value" style="visibility: {{ showsj ? 'visible':'hidden' }};">当前为登录, 点击头像进入登录页面</view>
                     </view>
                 </view>
             </view>

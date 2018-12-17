@@ -8,7 +8,7 @@ Page({
     scrollTop: null,
     systemWidth: 375,
     headerBili: 1,
-    isLogin: false,
+    isLogin: true,
     user: {
       avatar: '/static/img/avatar.png',
       nickname: '请点击登录'
@@ -60,7 +60,7 @@ Page({
 
   // 登录页
   handleLogin() {
-    if(this.data.isLogin === true) return;
+    if (this.data.isLogin === true) return;
     wx.navigateTo({
       url: `/pages/login/login?form=personal`,
     })
@@ -91,7 +91,7 @@ Page({
     }
   },
   // 拨打电话
-  handlePhoneCall(){
+  handlePhoneCall() {
     wx.makePhoneCall({
       phoneNumber: '13076248607'
     })

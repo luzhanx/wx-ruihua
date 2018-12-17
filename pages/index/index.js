@@ -110,6 +110,11 @@ Page({
 	},
 	// 跳转用户中心
 	handleToPersonal() {
+		if (!this.data.isLogin) {
+			return wx.navigateTo({
+				url: '/pages/login/login'
+			});
+		}
 		wx.switchTab({
 			url: '/pages/personal/personal'
 		});
@@ -118,7 +123,11 @@ Page({
 	onShow: function() {},
 	onHide: function() {},
 	onUnload: function() {},
-	onPullDownRefresh: function() {},
+	onPullDownRefresh() {
+		setTimeout(() => {
+			wx.stopPullDownRefresh();
+		}, 2000);
+	},
 	onReachBottom: function() {},
 	onShareAppMessage: function() {},
 	onPageScroll: function() {},
