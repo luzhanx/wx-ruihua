@@ -149,7 +149,7 @@ Page({
     this.setData({
       user: user.length === 0 ? {
         avatar: '/static/img/avatar.png',
-        nickname: '请点击登录'
+        username: '请点击登录'
       } : user,
       isLogin: isLogin,
     });
