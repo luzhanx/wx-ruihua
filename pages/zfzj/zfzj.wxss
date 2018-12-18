@@ -1,17 +1,17 @@
 page {
   background: #f8f8f8;
 }
-.zfdk {
+.zfzj {
   padding: 0 30rpx;
 }
-.zfdk .panle {
+.zfzj .panle {
   margin-top: 36rpx;
   background: #fff;
   border-radius: 10rpx;
   box-shadow: 0 4rpx 6rpx #eee;
   padding: 24rpx 36rpx;
 }
-.zfdk .panle .panle_input {
+.zfzj .panle .panle_input {
   font-size: 26rpx;
   display: flex;
   justify-content: space-between;
@@ -19,22 +19,22 @@ page {
   align-items: center;
   border-bottom: 2rpx solid #E5E5E5;
 }
-.zfdk .panle .panle_input .key {
+.zfzj .panle .panle_input .key {
   flex: 1;
   color: #666666;
 }
-.zfdk .panle .panle_input .value {
+.zfzj .panle .panle_input .value {
   color: #c7c7c7;
   padding: 0 10rpx;
 }
-.zfdk .panle .panle_input .value.red {
+.zfzj .panle .panle_input .value.red {
   color: #FF0000;
 }
-.zfdk .panle .panle_input .right {
+.zfzj .panle .panle_input .right {
   width: 13rpx;
   height: 21rpx;
 }
-.zfdk .panle .panle_tip {
+.zfzj .panle .panle_tip {
   color: #00a1e9;
   background: #F5F5F5;
   border-radius: 6rpx;
@@ -43,7 +43,7 @@ page {
   padding: 18rpx 18rpx;
   line-height: 36rpx;
 }
-.zfdk .save {
+.zfzj .save {
   height: 96rpx;
   background: #00a1e9;
   border-radius: 96rpx;

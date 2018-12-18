@@ -16,11 +16,7 @@ Page({
 		user: {
 			avatar: '/static/img/avatar.png',
 			true_name: '', // 姓名
-			sex: 1, // 性别 1=男 2=女 0=未知
-			age: 0, // 年龄
 			company: '', // 公司
-			department: '', // 部门
-			position: '', // 职位
 			last_time: '', // 上次登录时间
 		}
 	},
@@ -28,6 +24,7 @@ Page({
 	async onLoad() {
 		let indexRes = await getIndex();
 		let project = indexRes.data.project;
+		let company = indexRes.data.company;
 
 		// 登录失效
 		if (indexRes.data.code === 0) {
@@ -41,7 +38,7 @@ Page({
 			wx.clearStorageSync('user');
 			wx.clearStorageSync('token');
 			wx.clearStorageSync('service');
-
+			wx.setStorageSync('company', company);
 			return wx.showToast({
 				title: indexRes.data.msg,
 				icon: 'none',
@@ -64,6 +61,7 @@ Page({
 
 		wx.setStorageSync('user', user.length === 0 ? '' : user);
 		wx.setStorageSync('service', service);
+		wx.setStorageSync('company', company);
 	},
 
 	onShow() {
@@ -74,11 +72,7 @@ Page({
 				user: {
 					avatar: user.avatar,
 					true_name: user.true_name,
-					sex: user.sex,
-					age: user.age,
 					company: user.company,
-					department: user.department,
-					position: user.position,
 					last_time: user.last_time
 				},
 				isLogin: true
@@ -100,7 +94,7 @@ Page({
 		});
 	},
 	// 跳转详情
-	handleToDetail() {
+	handleToDetail(e) {
 		// 如果没有登录
 		if (!this.data.isLogin) {
 			return wx.showModal({
@@ -115,9 +109,39 @@ Page({
 				}
 			});
 		}
+		let id = e.currentTarget.dataset.id;
+		let name = e.currentTarget.dataset.name;
+		let urlName = '';
+
+		switch (id) {
+			case 1:
+				urlName = 'zfdk';
+				break;
+			case 2:
+				urlName = 'zfzj';
+				break;
+			case 3:
+				urlName = 'znjy';
+				break;
+			case 4:
+				urlName = 'sylr';
+				break;
+			case 5:
+				urlName = 'jxjy';
+				break;
+			case 6:
+				urlName = 'dbyl';
+				break;
+			default:
+				return wx.showToast({
+					title: '程序异常,请联系小程序管理员',
+					icon: 'none',
+					mask: true,
+				});
+		}
 
 		wx.navigateTo({
-			url: '/pages/zfdk/zfdk'
+			url: `/pages/${urlName}/${urlName}?title=${name}`
 		});
 	},
 
@@ -165,7 +189,7 @@ Page({
 					avatar: '/static/img/avatar.png'
 				}
 			})
-			
+
 			wx.clearStorageSync('user');
 			wx.clearStorageSync('token');
 			wx.clearStorageSync('service');

@@ -1,0 +1,31 @@
+<view class="znjy">
+    <view class="panle">
+        <view class="panle_input">
+            <view class="key">子女姓名</view>
+            <input type="text" class="value" placeholder="输入子女姓名(五字内)" />
+        </view>
+        <picker bindchange="handlePickerChange" value="{{ index }}" range="{{ array }}">
+            <view class="panle_input">
+                <view class="key">出生日期</view>
+                <view class="value">{{ array[index] }}</view>
+                <image class="right" src="/static/img/right.png"></image>
+            </view>
+        </picker>
+        <view class="panle_tip">子女满3周岁条件限制</view>
+    </view>
+    <view class="panle">
+        <picker bindchange="handlePickerChange" value="{{ index }}" range="{{ array }}">
+            <view class="panle_input">
+                <view class="key">分摊情况</view>
+                <view class="value">{{ array[index] }}</view>
+                <image class="right" src="/static/img/right.png"></image>
+            </view>
+        </picker>
+        <view class="panle_tip">分摊（费用500/人）分摊方式一年内不得变更，不分摊（费用1000/人）</view>
+        <view class="panle_input">
+            <view class="key">金额</view>
+            <view class="value red">1000元</view>
+        </view>
+    </view>
+    <view class="save">立即保存</view>
+</view>

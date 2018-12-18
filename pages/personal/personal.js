@@ -14,17 +14,13 @@ Page({
       avatar: '/static/img/avatar.png',
       username: '请点击登录', // 用户名
       true_name: '', // 真实姓名
-      sex: 1, // 性别 1=男 2=女 0=未知
-      age: 0, // 年龄
       company: '', // 公司
-      department: '', // 部门
-      position: '', // 职位
       phone: '', // 电话
     },
     service: "13800138000" //客服
   },
 
-  onLoad: function (options) {
+  onLoad() {
     // 获取屏幕宽度
     this.data.systemWidth = this.__getSystemWidth();
   },
@@ -32,18 +28,14 @@ Page({
   onShow() {
     let user = wx.getStorageSync('user');
     let service = wx.getStorageSync('service');
-    // console.log(user)
+
     if (user !== '') {
       this.setData({
         user: {
           avatar: user.avatar,
           username: user.username,
           true_name: user.true_name,
-          sex: user.sex === 1 ? '男' : '女',
-          age: user.age,
           company: user.company,
-          department: user.department,
-          position: user.position,
           phone: user.phone,
         },
         service: service,

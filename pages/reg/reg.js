@@ -1,5 +1,7 @@
 // pages/login/login.js
-import { userRegister } from './../../utils/api/api.js';
+import {
+	userRegister
+} from './../../utils/api/api.js';
 import regeneratorRuntime from './../../utils/runtime.js';
 
 Page({
@@ -7,7 +9,27 @@ Page({
 		true_name: '',
 		phone: '',
 		password: '',
-		password2: ''
+		password2: '',
+		company: '',
+		index: null
+	},
+
+
+	onLoad() {
+		let company = wx.getStorageSync('company');
+
+		console.log(company)
+		this.setData({
+			company: company
+		})
+	},
+
+	handlePickerChange(e) {
+		let index = e.detail.value;
+
+		this.setData({
+			index: index
+		})
 	},
 
 	// 改变输出的key值
@@ -21,7 +43,7 @@ Page({
 	},
 
 	// 提交
-	async submit(wxres, user, password, phone, true_name) {
+	async submit(wxres, user, password, phone, true_name, company) {
 		try {
 			let res = await userRegister({
 				code: wxres.code,
@@ -29,7 +51,8 @@ Page({
 				iv: user.iv,
 				password: password,
 				phone: phone,
-				true_name: true_name
+				true_name: true_name,
+				company: company
 			});
 			if (res.data.code === 1) {
 				return wx.showToast({
@@ -61,6 +84,16 @@ Page({
 		let phone = this.data.phone;
 		let password = this.data.password;
 		let password2 = this.data.password2;
+		let index = this.data.index;
+
+		if ( index === null) {
+			return wx.showToast({
+				title: '请选择公司',
+				icon: 'none',
+				mask: true
+			});
+		}
+		let company = this.data.company[index].id;
 
 		if (true_name === '') {
 			return wx.showToast({
@@ -70,13 +103,13 @@ Page({
 			});
 		}
 
-		// if (!/^1(3|4|5|7|8)\d{9}$/.test(phone)) {
-		// 	return wx.showToast({
-		// 		title: '手机号码有误',
-		// 		icon: 'none',
-		// 		mask: true
-		// 	});
-		// }
+		if (!/^1(3|4|5|7|8)\d{9}$/.test(phone)) {
+			return wx.showToast({
+				title: '手机号码有误',
+				icon: 'none',
+				mask: true
+			});
+		}
 		if (password === '') {
 			return wx.showToast({
 				title: '密码不能为空',
@@ -103,7 +136,7 @@ Page({
 					lang: 'zh_CN',
 					withCredentials: true,
 					success(user) {
-						that.submit(wxres, user, password, phone, true_name);
+						that.submit(wxres, user, password, phone, true_name, company);
 					}
 				});
 			}

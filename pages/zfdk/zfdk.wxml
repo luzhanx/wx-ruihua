@@ -1,1 +1,22 @@
-住房贷款
+<view class="zfdk">
+    <view class="panle">
+        <picker bindchange="handlePickerChange" value="{{ index }}" range="{{ array }}">
+            <view class="panle_input">
+                <view class="key">分摊情况</view>
+                <view class="value">{{ index === null ? '请选择分摊情况' : array[index] }}</view>
+                <image class="right" src="/static/img/right.png"></image>
+            </view>
+        </picker>
+        <view class="panle_tip">分摊金额（{{ info.apportion }}%）分摊方式一年内不得变更</view>
+    </view>
+    <view class="panle">
+        <view class="panle_input">
+            <view class="key">住房贷款利息</view>
+            <view class="value red">{{ money }}元</view>
+        </view>
+        <view class="panle_tip">
+            首套住房货款利息支出，在偿还贷款期间，可以按照每年{{ info.money }}元（每月{{ info.month }}元）标准定额扣除
+        </view>
+    </view>
+    <view class="save" bindtap="handleSave">立即保存</view>
+</view>

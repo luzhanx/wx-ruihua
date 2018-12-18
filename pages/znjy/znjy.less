@@ -1,16 +1,17 @@
-// out: zfdk.wxss, compress: false, sourceMap: false
+// out: znjy.wxss, compress: false, sourceMap: false
 @color: #00a1e9;
 page {
 	background: #f8f8f8;
 }
-.zfdk {
+.znjy {
 	padding: 0 30rpx;
 	.panle {
 		margin-top: 36rpx;
 		background: #fff;
 		border-radius: 10rpx;
 		box-shadow: 0 4rpx 6rpx #eee;
-		padding: 24rpx 36rpx;
+        padding: 24rpx 36rpx;
+        padding-top: 10rpx;
 		.panle_input {
             font-size: 26rpx;
             display: flex;
@@ -18,15 +19,20 @@ page {
             height: 76rpx;
             align-items: center;
             border-bottom: 2rpx solid #E5E5E5;
+            margin-top: 14rpx;
 			.key {
-                flex: 1;
 				color: #666666;
 			}
 			.value {
+                flex: 1;
                 color: #c7c7c7;
                 padding: 0 10rpx;
+                text-align: right;
                 &.red {
                     color: #FF0000;
+                }
+                .input-placeholder {
+                    color: #c7c7c7;
                 }
             }
             .right {

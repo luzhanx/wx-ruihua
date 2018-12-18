@@ -97,8 +97,8 @@
   padding: 0 32rpx;
 }
 .items .item .icon {
-  width: 29rpx;
-  height: 35rpx;
+  width: 40rpx;
+  height: 45rpx;
 }
 .items .item .key {
   color: #858585;

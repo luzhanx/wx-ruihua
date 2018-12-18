@@ -1,0 +1,17 @@
+<view class="zfzj">
+    <view class="panle">
+        <picker bindchange="handlePickerChange" value="{{ index }}" range="{{ array }}">
+            <view class="panle_input">
+                <view class="key">选择金额</view>
+                <view class="value">
+                    {{ index === null ? '选择住房租金金额('+ array[0] +'/'+ array[1] +'/'+ array[2] +')' : array[index]}}
+                </view>
+                <image class="right" src="/static/img/right.png"></image>
+            </view>
+        </picker>
+        <view class="panle_tip">
+            夫妻双方主要工作城市相同的，只能由一方扣除住房租金支出。夫妻双方主要工作城市不相同的，且各自在其主要工作城市都没有住房的，可以分别扣除住房租金支出。纳税人及其配偶不得同时分别享受住房贷款利息专项附加扣除和住房租金专项附加扣除。
+        </view>
+    </view>
+    <view class="save" bindtap="handleSave">立即保存</view>
+</view>

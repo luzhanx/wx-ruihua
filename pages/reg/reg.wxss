@@ -20,7 +20,11 @@
   border-radius: 82rpx;
   margin-top: 35rpx;
   font-size: 28rpx;
+  line-height: 82rpx;
   padding: 0 47rpx;
+}
+.input.pl {
+  color: #777;
 }
 .submit {
   width: 100%;

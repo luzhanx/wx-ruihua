@@ -6,16 +6,9 @@
             <view class="info" wx:if="{{ isLogin }}">
                 <view class="info_t">
                     <view class="nickname">{{ user.true_name }}</view>
-                    <image class="sexImg" wx:if="{{ user.sex === 1 }}" src="/static/img/nan.png"></image>
-                    <image class="sexImg" wx:else src="/static/img/nv.png"></image>
-                    <view class="sexNum">{{ user.age }}</view>
                 </view>
                 <view class="dec">
                     <text>{{ user.company }}</text>
-                    |
-                    <text>{{ user.department }}</text>
-                    |
-                    <text>{{ user.position }}</text>
                 </view>
             </view>
             <view class="toLoginText" wx:else>请点击登录</view>
@@ -43,11 +36,11 @@
     </view>
     <view class='items'>
         <block wx:for="{{ project }}" wx:key="{{ item.id }}">
-            <view class="item" bindtap="handleToDetail">
+            <view class="item" bindtap="handleToDetail" data-id="{{ item.id }}" data-name="{{ item.project_name }}">
                 <image class="icon" src="{{ item.thumb }}"></image>
                 <view class="info">
                     <view class="name">
-                        {{ item.project_name }}
+                        <text>{{ item.project_name }}</text>
                         <i class="iconfont icon-bangzhu" catchtap="handleShowHelp" data-index="{{ index }}"></i>
                     </view>
                     <view class="dec">{{ item.remark === '' ? '备注' : item.remark }}</view>

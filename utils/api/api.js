@@ -20,3 +20,14 @@ export const userRegister = (data) => http.post('/api/login/register', data);
 
 // 首页
 export const getIndex = () => http.get('/api/user');
+
+
+// 住房贷款信息
+export const getZfdk = () => http.get('/api/project/loans');
+// 住房贷款提交
+export const saveZfdk = (data) => http.post('/api/project/loans', data);
+
+// 住房租金信息
+export const getZfzj = () => http.get('/api/project/fund');
+// 住房租金提交
+export const saveZfzj = (data) => http.post('/api/project/fund', data);
