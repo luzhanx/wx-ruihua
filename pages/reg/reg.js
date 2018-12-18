@@ -70,13 +70,13 @@ Page({
 			});
 		}
 
-		if (!/^1(3|4|5|7|8)\d{9}$/.test(phone)) {
-			return wx.showToast({
-				title: '手机号码有误',
-				icon: 'none',
-				mask: true
-			});
-		}
+		// if (!/^1(3|4|5|7|8)\d{9}$/.test(phone)) {
+		// 	return wx.showToast({
+		// 		title: '手机号码有误',
+		// 		icon: 'none',
+		// 		mask: true
+		// 	});
+		// }
 		if (password === '') {
 			return wx.showToast({
 				title: '密码不能为空',
