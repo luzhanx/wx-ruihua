@@ -54,13 +54,13 @@
   width: 20rpx;
   height: 30rpx;
   position: relative;
-  top: 20rpx;
+  top: 22rpx;
   margin: 0 10rpx;
 }
 .header .top .info .info_t .sexNum {
   font-size: 28rpx;
   position: relative;
-  top: 16rpx;
+  top: 20rpx;
 }
 .header .top .info .dec {
   font-size: 26rpx;

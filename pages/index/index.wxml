@@ -2,19 +2,20 @@
 <view class="index">
     <view class="header">
         <view class="top" bindtap="handleToPersonal">
-            <image class="avatar" src="/static/img/avatar.png"></image>
+            <image class="avatar" src="{{ user.avatar }}"></image>
             <view class="info" wx:if="{{ isLogin }}">
                 <view class="info_t">
-                    <view class="nickname">曹操</view>
-                    <image class="sexImg" src="/static/img/nan.png"></image>
-                    <view class="sexNum">26</view>
+                    <view class="nickname">{{ user.true_name }}</view>
+                    <image class="sexImg" wx:if="{{ user.sex === 1 }}" src="/static/img/nan.png"></image>
+                    <image class="sexImg" wx:else src="/static/img/nv.png"></image>
+                    <view class="sexNum">{{ user.age }}</view>
                 </view>
                 <view class="dec">
-                    <text>瑞华会计事务所</text>
+                    <text>{{ user.company }}</text>
                     |
-                    <text>设计部</text>
+                    <text>{{ user.department }}</text>
                     |
-                    <text>设计总监</text>
+                    <text>{{ user.position }}</text>
                 </view>
             </view>
             <view class="toLoginText" wx:else>请点击登录</view>
@@ -24,11 +25,17 @@
                 <view class="iconfont icon-shijian" bindtap="handleShowsj"></view>
                 <view class="showsj" bindtap="handleShowsj" style="visibility: {{ showsj ? 'visible':'hidden' }};width:{{ showsj ? '100%':'0' }}">
                     <view class="showsjc" wx:if="{{ isLogin }}">
-                        <view class="key" style="visibility: {{ showsj ? 'visible':'hidden' }};">上次登录时间</view>
-                        <view class="value" style="visibility: {{ showsj ? 'visible':'hidden' }};">2018.12.12 00:30</view>
+                        <view class="key" style="visibility: {{ showsj ? 'visible':'hidden' }};">
+                            上次登录时间
+                        </view>
+                        <view class="value" style="visibility: {{ showsj ? 'visible':'hidden' }};">
+                            {{ user.last_time }}
+                        </view>
                     </view>
                     <view class="showsjc">
-                        <view class="value" style="visibility: {{ showsj ? 'visible':'hidden' }};">当前为登录, 点击头像进入登录页面</view>
+                        <view class="value" style="visibility: {{ showsj ? 'visible':'hidden' }};">
+                            当前未登录, 点击上方进入登录页面
+                        </view>
                     </view>
                 </view>
             </view>
@@ -39,15 +46,17 @@
             <view class="item" bindtap="handleToDetail">
                 <image class="icon" src="{{ item.thumb }}"></image>
                 <view class="info">
-                    <view class="name">{{ item.project_name }}<i class="iconfont icon-bangzhu" catchtap="handleShowHelp" data-index="{{ index }}"></i></view>
+                    <view class="name">
+                        {{ item.project_name }}
+                        <i class="iconfont icon-bangzhu" catchtap="handleShowHelp" data-index="{{ index }}"></i>
+                    </view>
                     <view class="dec">{{ item.remark === '' ? '备注' : item.remark }}</view>
                 </view>
                 <image class="right" src="/static/img/right.png"></image>
             </view>
         </block>
     </view>
-
-    <view class="submit">立即提交</view>
+    <view class="submit" wx:if="{{ isLogin }}">立即提交</view>
 </view>
 <view class="showHelp" style="display:{{ showHelp.show ? 'flex':'none' }}">
     <view class="model">

@@ -1,4 +1,8 @@
-// pages/login/login.js
+import {
+  userLogin
+} from './../../utils/api/api.js';
+import regeneratorRuntime from './../../utils/runtime.js';
+
 Page({
 
   data: {
@@ -17,7 +21,7 @@ Page({
     });
   },
 
-  handleLogin() {
+  async handleLogin() {
 
     let phone = this.data.phone;
     let password = this.data.password;
@@ -38,37 +42,43 @@ Page({
       });
     }
 
-    wx.request({
-      url: 'https://ruihua.xtow.net/api/login/index',
-      data: {
+    try {
+      let res = await userLogin({
         phone: phone,
         password: password
-      },
-      method: 'POST',
-      success: (res) => {
-        console.log(res);
-        if (res.data.code === 1) {
-          // wx.navigateBack({
-          //   delta: 1
-          // })
-        } else {
-          return wx.showToast({
-            title: res.data.msg,
-            icon: 'none',
-            mask: true
-          });
-        }
-      },
-      fail() {
+      });
+      if (res.data.code === 1) {
         wx.showToast({
-          title: '网络异常',
-          icon: 'none',
+          title: res.data.msg,
+          icon: 'success',
+          duration: 2000,
           mask: true,
+          success() {
+            let token = res.data.token;
+            let user = res.data.data;
+            let service = res.data.service;
+
+            // 写入缓存
+            wx.setStorageSync('token', token);
+            wx.setStorageSync('user', user);
+            wx.setStorageSync('service', service);
+            
+            setTimeout(() => {
+              wx.navigateBack({
+                delta: 1
+              })
+            }, 2000);
+          },
         });
-      },
-    });
+      } else {
+        return wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          mask: true
+        });
+      }
 
-
+    } catch (e) {}
   },
   // 前往注册页
   handleToReg() {

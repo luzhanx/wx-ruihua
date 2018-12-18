@@ -1,4 +1,6 @@
-import { getIndex } from './../../utils/api/api.js';
+import {
+	getIndex
+} from './../../utils/api/api.js';
 import regeneratorRuntime from './../../utils/runtime.js';
 
 Page({
@@ -10,57 +12,87 @@ Page({
 			title: '测试',
 			content: '测试'
 		},
-		project: [
-			{
-				id: 1,
-				project_name: '住房贷款',
-				thumb: '/static/img/zfdk.png',
-				remark: '住房',
-				description: '111'
-			},
-			{
-				id: 2,
-				project_name: '住房租金',
-				thumb: '/static/img/zfzj.png',
-				remark: '租金',
-				description: '222'
-			},
-			{
-				id: 3,
-				project_name: '子女教育',
-				thumb: '/static/img/znjy.png',
-				remark: '教育',
-				description: '333'
-			},
-			{
-				id: 4,
-				project_name: '赡养老人',
-				thumb: '/static/img/sylr.png',
-				remark: '赡养',
-				description: '444'
-			},
-			{
-				id: 5,
-				project_name: '继续教育专项附加扣除',
-				thumb: '/static/img/jxjy.png',
-				remark: '',
-				description: '555'
-			},
-			{
-				id: 6,
-				project_name: '大病医疗',
-				thumb: '/static/img/dbyl.png',
-				remark: '医疗',
-				description: '666'
-			}
-		]
+		project: [],
+		user: {
+			avatar: '/static/img/avatar.png',
+			true_name: '', // 姓名
+			sex: 1, // 性别 1=男 2=女 0=未知
+			age: 0, // 年龄
+			company: '', // 公司
+			department: '', // 部门
+			position: '', // 职位
+			last_time: '', // 上次登录时间
+		}
 	},
 
 	async onLoad() {
 		let indexRes = await getIndex();
+		let project = indexRes.data.project;
 
-		console.log(indexRes);
+		// 登录失效
+		if (indexRes.data.code === 0) {
+			this.setData({
+				isLogin: false,
+				project: project,
+				user: {
+					avatar: '/static/img/avatar.png'
+				}
+			})
+			wx.clearStorageSync('user');
+			wx.clearStorageSync('token');
+			wx.clearStorageSync('service');
+
+			return wx.showToast({
+				title: indexRes.data.msg,
+				icon: 'none',
+				duration: 1500,
+				mask: true,
+			});
+		}
+
+		let user = indexRes.data.user;
+		let service = indexRes.data.service;
+		let isLogin = user.length === 0 ? false : true;
+
+		this.setData({
+			user: user.length === 0 ? {
+				avatar: '/static/img/avatar.png'
+			} : user,
+			project: project,
+			isLogin: isLogin,
+		});
+
+		wx.setStorageSync('user', user.length === 0 ? '' : user);
+		wx.setStorageSync('service', service);
 	},
+
+	onShow() {
+		let user = wx.getStorageSync('user');
+
+		if (user !== '') {
+			this.setData({
+				user: {
+					avatar: user.avatar,
+					true_name: user.true_name,
+					sex: user.sex,
+					age: user.age,
+					company: user.company,
+					department: user.department,
+					position: user.position,
+					last_time: user.last_time
+				},
+				isLogin: true
+			})
+		} else {
+			this.setData({
+				isLogin: false,
+				user: {
+					avatar: '/static/img/avatar.png'
+				}
+			})
+		}
+	},
+
 	// 显示上次登录时间
 	handleShowsj() {
 		this.setData({
@@ -119,18 +151,50 @@ Page({
 			url: '/pages/personal/personal'
 		});
 	},
-	onReady: function() {},
-	onShow: function() {},
-	onHide: function() {},
-	onUnload: function() {},
-	onPullDownRefresh() {
-		setTimeout(() => {
+
+	async onPullDownRefresh() {
+		let indexRes = await getIndex();
+		let project = indexRes.data.project;
+
+		// 登录失效
+		if (indexRes.data.code === 0) {
+			this.setData({
+				isLogin: false,
+				project: project,
+				user: {
+					avatar: '/static/img/avatar.png'
+				}
+			})
+			
+			wx.clearStorageSync('user');
+			wx.clearStorageSync('token');
+			wx.clearStorageSync('service');
 			wx.stopPullDownRefresh();
-		}, 2000);
+
+			return wx.showToast({
+				title: indexRes.data.msg,
+				icon: 'none',
+				duration: 1500,
+				mask: true,
+			});
+		}
+
+		let user = indexRes.data.user;
+		let service = indexRes.data.service;
+		let isLogin = user.length === 0 ? false : true;
+
+		this.setData({
+			user: user.length === 0 ? {
+				avatar: '/static/img/avatar.png'
+			} : user,
+			project: project,
+			isLogin: isLogin,
+		});
+
+		wx.setStorageSync('user', user.length === 0 ? '' : user);
+		wx.setStorageSync('service', service);
+		wx.stopPullDownRefresh();
+
 	},
-	onReachBottom: function() {},
-	onShareAppMessage: function() {},
-	onPageScroll: function() {},
-	//item(index,pagePath,text)
-	onTabItemTap: function(item) {}
+	onShareAppMessage: function () {},
 });

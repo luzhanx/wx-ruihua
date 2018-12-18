@@ -1,48 +1,48 @@
 <view class='personal'>
   <view class='header' bindtap='handleLogin'>
     <image src='{{ user.avatar }}' class='avatar' style='width:{{ 200*headerBili }}rpx;height:{{ 200*headerBili }}rpx;'></image>
-    <text class='nickname' style='font-size:{{ 40*headerBili }}rpx;margin-top:{{ 30*headerBili }}rpx;'>{{ user.nickname }}</text>
+    <text class='nickname' style='font-size:{{ 40*headerBili }}rpx;margin-top:{{ 30*headerBili }}rpx;'>{{ user.username }}</text>
   </view>
   <view class='xheader' style='opacity:{{ headerBili < 0.38 ? (1-headerBili)+0.3  :"0" }}'>
     <image src='{{ user.avatar }}' class='avatar'></image>
-    <text class='nickname'>{{ user.nickname }}</text>
+    <text class='nickname'>{{ user.username }}</text>
   </view>
   <view class="tip" wx:if="{{ !isLogin }}">登录后可解锁更多操作~</view>
   <view class='items' wx:if="{{ isLogin }}">
     <view class='item'>
       <image class="icon" src="/static/img/xm.png"></image>
       <view class="key">姓名</view>
-      <text class="value">曹操</text>
+      <text class="value">{{ user.true_name }}</text>
     </view>
     <view class='item'>
       <image class="icon" src="/static/img/nl.png"></image>
       <view class="key">年龄</view>
-      <text class="value">30</text>
+      <text class="value">{{ user.age }}</text>
     </view>
     <view class='item'>
       <image class="icon" src="/static/img/nl.png"></image>
       <view class="key">性别</view>
-      <text class="value">男</text>
+      <text class="value">{{ user.sex }}</text>
     </view>
     <view class='item'>
       <image class="icon" src="/static/img/gs.png"></image>
       <view class="key">公司</view>
-      <text class="value">瑞华会计事务所</text>
+      <text class="value">{{ user.company }}</text>
     </view>
     <view class='item'>
       <image class="icon" src="/static/img/bm.png"></image>
       <view class="key">部门</view>
-      <text class="value">神经病</text>
+      <text class="value">{{ user.department }}</text>
     </view>
     <view class='item'>
       <image class="icon" src="/static/img/zw.png"></image>
       <view class="key">职位</view>
-      <text class="value">神经病</text>
+      <text class="value">{{ user.position }}</text>
     </view>
     <view class='item'>
       <image class="icon" src="/static/img/xm.png"></image>
       <view class="key">绑定账号</view>
-      <text class="value">神经病</text>
+      <text class="value">{{ user.phone }}</text>
     </view>
     <view class='item'>
       <image class="icon" src="/static/img/zhaq.png"></image>
@@ -52,7 +52,7 @@
     <view class='item' bindtap="handlePhoneCall">
       <image class="icon" src="/static/img/lxkf.png"></image>
       <view class="key">联系客服</view>
-      <text class="value">666666</text>
+      <text class="value">{{ service }}</text>
     </view>
   </view>
   <view class='logout' wx:if="{{ isLogin }}" bindtap='handleLogout'>注销登录</view>

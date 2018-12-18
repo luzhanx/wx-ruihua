@@ -12,6 +12,9 @@ export const userCenter = () => {
 	return http.get('/index/userCenter');
 };
 
+// 登录
+export const userLogin = (data) => http.post('/api/login', data);
+
 // 注册
 export const userRegister = (data) => http.post('/api/login/register', data);
 
