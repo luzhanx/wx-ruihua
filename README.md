@@ -14,3 +14,5 @@ https://www.kancloud.cn/yrzeee/rhhj/877992
 
 # 强制覆盖本地代码
 git fetch --all && git reset --hard origin/master && git pull
+
+
